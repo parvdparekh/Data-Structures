@@ -16,11 +16,7 @@ struct Node *sort(struct Node *head1,struct Node *head2)
 {
     struct Node* dummy = createNode(-1);
     struct Node* curr = dummy;
-
-    // iterate through both linked lists
     while (head1 != NULL && head2 != NULL) {
-      
-        // add the smaller node to the merged list
         if (head1->data <= head2->data) {
             curr->next = head1;
             head1 = head1->next;
@@ -30,17 +26,11 @@ struct Node *sort(struct Node *head1,struct Node *head2)
         }
         curr = curr->next;
     }
-
-    // if any list is left, append it to 
-    // the merged list
     if (head1 != NULL) {
         curr->next = head1;
     } else {
         curr->next = head2;
     }
-
-    // return the merged list starting 
-    // from the next of dummy node
     return dummy->next;
 }
 
